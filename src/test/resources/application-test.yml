@@ -1,4 +1,7 @@
 datasources:
   default:
-    url: jdbc:tc:mysql:8:///db
+    url: jdbc:mysql://localhost:3306/study-plandb
     driverClassName: org.testcontainers.jdbc.ContainerDatabaseDriver
+  environment:
+    MYSQL_ROOT_PASSWORD='123456'
+    MYSQL_ROOT_HOST='172.22.0.1'

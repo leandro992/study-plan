@@ -3,10 +3,10 @@ micronaut:
     name: studyPlan
 datasources:
   default:
-    url: jdbc:mysql://localhost:3306/db
+    url: jdbc:mysql://localhost:3306/study-plandb
     driverClassName: com.mysql.cj.jdbc.Driver
-    username: root
-    password: ''
+    username: user
+    password: '123456'
     schema-generate: CREATE_DROP
     dialect: MYSQL
 jpa.default.properties.hibernate.hbm2ddl.auto: update
