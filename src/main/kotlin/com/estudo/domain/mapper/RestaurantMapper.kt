@@ -1,7 +1,7 @@
 package com.estudo.domain.mapper
 
-import com.estudo.domain.entities.Restaurant as RestaurantDomain
-import com.estudo.application.entities.Restaurant
+import com.estudo.domain.entities.Restaurant
+import com.estudo.application.dataprovider.entities.Restaurant as RestaurantDB
 import org.mapstruct.Mapper
 import org.mapstruct.Mappings
 
@@ -10,9 +10,9 @@ interface RestaurantMapper {
 
 
     @Mappings
-    fun toDomain(restaurant: Restaurant): RestaurantDomain
+    fun toDomain(restaurant: RestaurantDB): Restaurant
 
     @Mappings
-    fun fromDomain(restauranteDomain: RestaurantDomain)
+    fun fromDomain(restaurant: Restaurant): RestaurantDB
 
 }

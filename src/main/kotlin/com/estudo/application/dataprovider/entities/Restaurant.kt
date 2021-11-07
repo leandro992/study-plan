@@ -1,4 +1,4 @@
-package com.estudo.application.entities
+package com.estudo.application.dataprovider.entities
 
 import java.math.BigDecimal
 import javax.persistence.Column
@@ -12,5 +12,5 @@ data class Restaurant(
     @Column
     val nome: String,
     @Column
-    val taxaFrete: BigDecimal
+    val freeShipping: BigDecimal
 )
