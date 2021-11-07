@@ -1,30 +1,23 @@
 package com.estudo.domain.usecase
 
 
-import com.estudo.domain.entities.Restaurant as RestauranteDomain
-import com.estudo.application.entities.Restaurant
-import com.estudo.domain.gateway.RestauranteGateway
-import com.estudo.domain.mapper.RestaurantMapper
+import com.estudo.domain.gateway.RestaurantGateway
 import javax.inject.Singleton
+import com.estudo.domain.entities.Restaurant as RestaurantRequest
 
 @Singleton
 class RestaurantUseCase(
-    private val restauranteGateway: RestauranteGateway,
-    private val restaurantMapper: RestaurantMapper
+    private val restaurantGateway: RestaurantGateway,
 ) {
 
-    fun consultRestaurant(id: Long) = restauranteGateway.consultRestaurant(id)
+    fun consultRestaurant(id: Long) = restaurantGateway.consultRestaurant(id)
         .let { it }
 
-    fun saveRestaurant(restaurant: Restaurant): RestauranteDomain =
-        restaurantMapper.toDomain(restaurant)
-            .let { restauranteGateway.saveRestaurant(it) }
+    fun saveRestaurant(restaurant: RestaurantRequest): RestaurantRequest =
+        restaurantGateway.saveRestaurant(restaurant)
 
-    fun deleteRestaurant(id: Long) = restauranteGateway.deleteRestaurant(id)
+    fun deleteRestaurant(id: Long) = restaurantGateway.deleteRestaurant(id)
 
-    fun replaceRestaurant(restaurant: Restaurant): RestauranteDomain =
-        restaurantMapper.toDomain(restaurant)
-            .let { restauranteGateway.replaceRestaurant(it) }
-
-
+    fun replaceRestaurant(restaurant: RestaurantRequest): RestaurantRequest =
+            restaurantGateway.replaceRestaurant(restaurant)
 }

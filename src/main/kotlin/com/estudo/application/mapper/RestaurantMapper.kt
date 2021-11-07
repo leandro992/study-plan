@@ -1,17 +1,17 @@
 package com.estudo.application.mapper
 
 import com.estudo.domain.entities.Restaurant as RestaurantDomain
-import com.estudo.application.entities.Restaurant
+import com.estudo.application.dataprovider.entities.Restaurant
 import org.mapstruct.Mapper
 import org.mapstruct.Mappings
 
 @Mapper
-interface RestaurantMapper {
+abstract class RestaurantMapper {
 
     @Mappings
-    fun toDomain(restaurant: Restaurant): RestaurantDomain
+    abstract fun toDomain(restaurant: Restaurant): RestaurantDomain
 
     @Mappings
-    fun fromDomain(restaurantDomain: RestaurantDomain): Restaurant
+    abstract fun fromDomain(restaurant: RestaurantDomain): Restaurant
 
 }

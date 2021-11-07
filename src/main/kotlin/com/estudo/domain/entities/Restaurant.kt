@@ -8,5 +8,5 @@ import javax.persistence.Id
 data class Restaurant(
     val id: Long,
     val nome: String,
-    val taxaFrete: BigDecimal
+    val freeShipping: BigDecimal
 )
