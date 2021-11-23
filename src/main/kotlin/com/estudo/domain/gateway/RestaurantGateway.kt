@@ -2,7 +2,6 @@ package com.estudo.domain.gateway
 
 import com.estudo.domain.entities.Restaurant
 
-
 interface RestaurantGateway {
 
     fun consultRestaurant(id: Long): Restaurant

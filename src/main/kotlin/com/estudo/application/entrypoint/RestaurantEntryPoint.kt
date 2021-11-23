@@ -1,7 +1,5 @@
 package com.estudo.application.entrypoint
 
-
-import com.estudo.application.mapper.RestaurantMapper
 import com.estudo.domain.entities.Restaurant
 import com.estudo.domain.usecase.RestaurantUseCase
 import io.micronaut.http.HttpResponse
@@ -13,10 +11,9 @@ import io.micronaut.http.annotation.PathVariable
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.annotation.Put
 
-@Controller(value = "/restaurante")
+@Controller(value = "/restaurant")
 class RestaurantEntryPoint(
-    private val restaurantUseCase: RestaurantUseCase,
-    private val restaurantMapper: RestaurantMapper
+    private val restaurantUseCase: RestaurantUseCase
 ) {
 
     @Get("/{id}")
@@ -35,6 +32,4 @@ class RestaurantEntryPoint(
     @Delete("/{id}")
     fun deleteRestaurant(@PathVariable id: Long) =
         restaurantUseCase.deleteRestaurant(id)
-
-
 }

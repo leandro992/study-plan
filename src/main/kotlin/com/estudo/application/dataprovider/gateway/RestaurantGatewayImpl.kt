@@ -14,7 +14,7 @@ class RestaurantGatewayImpl(
 
     override fun consultRestaurant(id: Long): Restaurant =
         restaurantRepository.findById(id)
-            .let { restaurantMapper.toDomain(it.get()) }
+            .let { RestaurantMapper.INSTANCE.toDomain(it.get()) }
 
     override fun saveRestaurant(restaurant: Restaurant): Restaurant =
         restaurantMapper.fromDomain(restaurant)
@@ -23,11 +23,11 @@ class RestaurantGatewayImpl(
 
     override fun deleteRestaurant(id: Long) =
         consultRestaurant(id)
-            .let { restaurantMapper.fromDomain(it) }
+            .let { RestaurantMapper.INSTANCE.fromDomain(it) }
             .let { restaurantRepository.delete(it) }
 
     override fun replaceRestaurant(restaurant: Restaurant): Restaurant =
-        restaurantMapper.fromDomain(restaurant)
+        RestaurantMapper.INSTANCE.fromDomain(restaurant)
             .let { restaurantRepository.save(it) }
-            .let { restaurantMapper.toDomain(it) }
+            .let { RestaurantMapper.INSTANCE.toDomain(it) }
 }
