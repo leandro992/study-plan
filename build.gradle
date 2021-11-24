@@ -31,6 +31,7 @@ micronaut {
 dependencies {
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+    kapt("org.mapstruct:mapstruct-processor:$mapstructVersion")
     kapt("io.micronaut:micronaut-http-validation")
     kapt("io.micronaut.data:micronaut-data-processor")
     implementation("io.micronaut:micronaut-http-client")
@@ -69,6 +70,20 @@ application {
 java {
     sourceCompatibility = JavaVersion.toVersion("11")
 }
+
+
+kapt {
+    arguments {
+        arg("micronaut.processing.incremental", true)
+        arg("micronaut.processing.annotations", "com.estudo.*")
+        arg("micronaut.processing.group", "com.estudo")
+        arg("micronaut.processing.module", "study-plan")
+
+        arg("mapstruct.unmappedTargetPolicy", "ERROR")
+        arg("mapstruct.defaultComponentModel", "jsr330")
+    }
+}
+
 
 tasks.withType(JavaCompile) {
     compileKotlin {

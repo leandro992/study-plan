@@ -13,11 +13,9 @@ class RestaurantMapperTest {
     @Inject
    lateinit var restaurantMapper: RestaurantMapper
 
-   //@GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Test
     fun `shouldMapToDomain`(){
-        val map = Restaurant(id = 10, "victor", BigDecimal(10))
+        val map = Restaurant( id = 1, nome = "victor", freeShipping = 10.0)
 
         val toDomain = restaurantMapper.toDomain(map)
         assertNotNull(toDomain)

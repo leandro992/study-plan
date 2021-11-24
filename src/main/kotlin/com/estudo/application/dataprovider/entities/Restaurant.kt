@@ -1,9 +1,14 @@
 package com.estudo.application.dataprovider.entities
 
-import java.math.BigDecimal
-import javax.persistence.*
+import javax.persistence.Id
+import javax.persistence.Entity
+import javax.persistence.Table
+import javax.persistence.GenerationType
+import javax.persistence.GeneratedValue
+import javax.persistence.Column
 
 @Entity
+@Table
 data class Restaurant(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,5 +16,5 @@ data class Restaurant(
     @Column
     val nome: String,
     @Column
-    val freeShipping: BigDecimal
+    val freeShipping: Double
 )
